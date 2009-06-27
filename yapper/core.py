@@ -2,26 +2,31 @@ from twisted.words.protocols.jabber import client
 from twisted.words.protocols.jabber.jid import JID
 from twisted.words.xish import domish, xmlstream
 from twisted.internet.defer import Deferred
+from twisted.web.client import getPage
 
 from Growl import GrowlNotifier, Image
 
 import string, base64
+import simplejson
 
 avatar_cache = dict()
 
 def sendGrowl(message, icon=None):
     g = GrowlNotifier(notifications=['yapper'])
     g.register()
-    if message[0] == '!':
-        sticky = True
-        message = message[1:]
+    if type(message) is dict:
+        g.notify('yapper', message.get('title', ''), message['text'], sticky=message.get('sticky', False), icon=icon)
     else:
-        sticky = False
-    if message.count(':') > 0:
-        title, message = string.split(message, ':', 1)
-    else:
-        title = ''
-    g.notify('yapper', title.strip(), message.strip(), sticky=sticky, icon=icon)
+        if message[0] == '!':
+            sticky = True
+            message = message[1:]
+        else:
+            sticky = False
+        if message.count(':') > 0:
+            title, message = string.split(message, ':', 1)
+        else:
+            title = ''
+        g.notify('yapper', title.strip(), message.strip(), sticky=sticky, icon=icon)
 
 def getAvatar(stream, jid):
     if jid in avatar_cache:
@@ -66,11 +71,15 @@ def receivedMessage(stream, x):
     for e in x.elements():
         if e.name == "body" and x.hasAttribute('type') and x['type'] == 'chat':
             message = str(e)
-            result = getAvatar(stream, x['from'])
-            if isinstance(result, Deferred):
-                result.addCallback(lambda x: sendGrowl(message, x))
+            avatar_result = getAvatar(stream, x['from'])
+            if message.strip()[0] == '{':
+                message = simplejson.loads(message)
+            if type(message) is dict and 'icon' in message:
+                getPage(message['icon']).addCallback(lambda x: sendGrowl(message, Image.imageWithData(x)))
+            elif isinstance(avatar_result, Deferred):
+                avatar_result.addCallback(lambda x: sendGrowl(message, x))
             else:
-                sendGrowl(message, result)
+                sendGrowl(message, avatar_result)
             
 def receivedPresence(stream, x):
     if x.hasAttribute('type') and x['type'] == 'subscribe':

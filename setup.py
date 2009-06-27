@@ -19,6 +19,7 @@ setup(
     install_requires = [
         #'TwistedCore>=8.2.0',
         'py-Growl>=0.0.7',
+        'simplejson>=2.0.0',
     ],
     dependency_links = [
         'http://tmrc.mit.edu/mirror/twisted/Core/8.2/TwistedCore-8.2.0.tar.bz2',
