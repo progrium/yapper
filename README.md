@@ -50,6 +50,11 @@ JSON messages let you explicitly set each field, including the icon, using a JSO
 
 Yes, you can specify a URL for the icon. Standard formats please. Growl supports PNG, TIFF, JPEG, GIF, PICT, PDF, and BMP. Yapper will download whatever you give it ... if it's not one of those formats, I don't know what will happen.
 
+Advanced
+--------
+
+Yapper uses launchd and twistd behind the scenes. If you want to manually use launchctl to start/stop/remove/check the job, you can do that. If you want to see what else is going on, you can see where launchd logs, which is usually /var/log/system.log. And lastly, the launchd job just runs twistd, so if you want to run Yapper without launchd, you can use the yapper plugin installed for twistd ("twistd -n yapper --jid JID --password PASSWORD --host HOST").
+
 Contributing
 ------------
 
