@@ -22,7 +22,7 @@ Configuring
 You need to tell Yapper what Jabber account to use and make it run in the background when OS X starts. Fortunately, we have a sweet utility to manage this for you. If the install went correctly, you should now have a 'yapper' tool with a 'load' command:
     $ yapper load youraccount@example.com example.com
 
-You need to specify your JID as well as the Jabber host right now. Redundant, sure, but I made this with a JID domain that's different from my host. Patches welcome.
+I highly recommend trying it with a Jabber account you're not currently logged into. Also, you need to specify your JID as well as the Jabber host right now. Redundant, sure, but I made this with a JID domain that's different from my host. Patches welcome.
 
 Anyway, you'll be prompted for your account password. It won't tell if you failed to authenticate, so be sure to get it right. It should give you a success message quite immediately telling you that it's installed and running!
 
