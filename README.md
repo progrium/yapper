@@ -15,6 +15,8 @@ Installing
 
 After you download, drop into the directory and run:
     $ sudo python setup.py install
+
+Make a note of the install output because it's going to install a command line tool and you may need to add the path to your PATH environment variable. It should tell you at the end of the first big chunk of lines, starting with "Installing yapper script to ..."
     
 Configuring
 -----------
