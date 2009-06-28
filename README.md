@@ -10,6 +10,8 @@ Requirements
 
 Yapper only runs on OS X. You'll need Growl obviously. The install script takes care of installing the Growl Python bindings necessary for Yapper, but it doesn't do such a good job with Twisted. Twisted is a major dependency, so make you sure you have that installed ("sudo port install py25-twisted"). 
 
+In case this isn't obvious, you also need two Jabber accounts to test this with! One for Yapper and one to send it messages. You can get a friend to test it for you, but especially if you're using a GMail/GTalk account, be sure not to be signed in at the same time Yapper is running. Otherwise, your friend is most likely going to get their message routed to your signed in client instead of Yapper.
+
 Installing
 ----------
 
