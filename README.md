@@ -26,14 +26,14 @@ Configuring
 You need to tell Yapper what Jabber account to use and make it run in the background when OS X starts. Fortunately, we have a sweet utility to manage this for you. If the install went correctly, you should now have a 'yapper' tool with a 'load' command:
     $ yapper load youraccount@example.com example.com
 
-I highly recommend trying it with a Jabber account you're not currently logged into. Also, you need to specify your JID as well as the Jabber host right now. Redundant, sure, but I made this with a JID domain that's different from my host. Patches welcome.
+You need to specify your JID as well as the Jabber host right now. Redundant, sure, but I made this with a JID domain that's different from my host. Patches welcome.
 
-Anyway, you'll be prompted for your account password. It won't tell if you failed to authenticate, so be sure to get it right. It should give you a success message quite immediately telling you that it's installed and running. It might not be, however ... best way to check is to see if the Yapper JID comes online. See Advanced for troubleshooting tips if necessary.
+Anyway, you'll be prompted for your account password. It won't tell if you failed to authenticate, so be sure to get it right. It should give you a success message quite immediately telling you that it's installed and running. It might not be, however ... best way to check is to see if the Yapper JID comes online. See Advanced section for troubleshooting tips if necessary.
 
 If you want to kill Yapper and prevent it from starting up at system load, use the 'unload' command:
     $ yapper unload youraccount@example.com
 
-You may have guessed you can run multiple Yapper instances with difference JIDs. I don't know why you'd want to do this, but you can. 
+You may have guessed you can run multiple Yapper instances with different JIDs. I don't know why you'd want to do this, but you can. 
 
 Using Yapper
 ------------
