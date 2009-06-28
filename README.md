@@ -28,7 +28,7 @@ You need to tell Yapper what Jabber account to use and make it run in the backgr
 
 I highly recommend trying it with a Jabber account you're not currently logged into. Also, you need to specify your JID as well as the Jabber host right now. Redundant, sure, but I made this with a JID domain that's different from my host. Patches welcome.
 
-Anyway, you'll be prompted for your account password. It won't tell if you failed to authenticate, so be sure to get it right. It should give you a success message quite immediately telling you that it's installed and running!
+Anyway, you'll be prompted for your account password. It won't tell if you failed to authenticate, so be sure to get it right. It should give you a success message quite immediately telling you that it's installed and running. It might not be, however ... best way to check is to see if the Yapper JID comes online. See Advanced for troubleshooting tips if necessary.
 
 If you want to kill Yapper and prevent it from starting up at system load, use the 'unload' command:
     $ yapper unload youraccount@example.com
