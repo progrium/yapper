@@ -8,7 +8,7 @@ Yapper solves this problem and makes Growl instantly accessible from any system 
 Requirements
 ------------
 
-Yapper only runs on OS X. You'll need Growl obviously. The install script takes care of installing the Growl Python bindings necessary for Yapper, but it doesn't do such a good job with Twisted. Twisted is a major dependency, so make you sure you have that installed. 
+Yapper only runs on OS X. You'll need Growl obviously. The install script takes care of installing the Growl Python bindings necessary for Yapper, but it doesn't do such a good job with Twisted. Twisted is a major dependency, so make you sure you have that installed ("sudo port install py25-twisted"). 
 
 Installing
 ----------
